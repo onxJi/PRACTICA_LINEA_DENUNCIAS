@@ -171,7 +171,7 @@ public class DetalleDenunciaAdminViewModel: BindableBase
         await _apiService.PostHistorialDenuncia(historial);
         if(SelectedStatus != null)
         {
-            MessageBox.Show("se pudo");
+           
             LoadHistorialDenuncia();
             var consult = await _apiService.PostDenunciaByFolio(Convert.ToInt64(TbFolio), SelectedStatus);
             if(consult)
