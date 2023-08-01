@@ -1,0 +1,104 @@
+CREATE DATABASE LINEA_DENUNCIAS 
+USE LINEA_DENUNCIAS 
+
+CREATE TABLE Empresa(
+	ID_Empresas INT IDENTITY(101,1) PRIMARY KEY NOT NULL,
+	Empresas VARCHAR(MAX) NULL
+)
+CREATE TABLE Pais( 
+	ID_Paises INT IDENTITY(1001,1) PRIMARY KEY NOT NULL,
+	Paises VARCHAR(MAX) NULL 
+)
+
+CREATE TABLE Estado(
+	ID_Estados INT IDENTITY(10001,1) PRIMARY KEY NOT NULL,
+	Estados VARCHAR(MAX) NULL 
+)
+CREATE TABLE Centro(
+	ID_Centro BIGINT IDENTITY(100001,1) PRIMARY KEY NOT NULL,
+	NumCentro VARCHAR(MAX) NULL
+
+)
+
+CREATE TABLE Catalogo(
+	ID_Denuncia BIGINT PRIMARY KEY NOT NULL,
+	Empresa VARCHAR(MAX) NULL,
+	Pais VARCHAR(MAX) NULL,
+	Estado VARCHAR(MAX) NULL,
+	NumCentro INT NULL
+)
+
+
+CREATE TABLE DatosPersonales(
+	ID_Denuncia BIGINT NOT NULL,
+	ID_Denunciante BIGINT IDENTITY(10000001,1) PRIMARY KEY NOT NULL,
+	Nombre VARCHAR(MAX) NULL,
+	Correo VARCHAR(MAX) NULL,
+	Telefono VARCHAR(MAX) NULL
+)
+
+
+CREATE TABLE Denuncias (
+	ID_Denuncia BIGINT NOT NULL,
+	ID_Denunciante BIGINT NOT NULL,
+	TituloDenuncia VARCHAR(MAX) NOT NULL,
+	Empresa VARCHAR(MAX) NULL,
+	Pais VARCHAR(MAX) NULL,
+	Estado VARCHAR(MAX) NULL,
+	NumCentro INT NULL,
+	Folio BIGINT PRIMARY KEY NOT NULL ,
+	PasswordDenuncia VARCHAR(MAX) NOT NULL,
+	DetalleDenuncia VARCHAR(MAX) NULL,
+	Estatus VARCHAR(40) NULL,
+	FechaDenuncia DATETIME NOT NULL,
+)
+
+
+CREATE TABLE HistorialDenuncia(
+	ID_Historial BIGINT IDENTITY(100000001,1) PRIMARY KEY NOT NULL,
+	ID_Denuncia BIGINT NOT NULL,
+	ID_Denunciante BIGINT NOT NULL,
+	Historial VARCHAR(MAX) NULL
+) 
+
+
+CREATE TABLE UserAdmin(
+	ID_Usuario BIGINT IDENTITY(1000000001,1) PRIMARY KEY NOT NULL,
+	Usuario VARCHAR(MAX) NOT NULL,
+	Pass VARCHAR(MAX) NOT NULL
+)
+
+CREATE TABLE UserDenunciante(
+	ID_Denunciante BIGINT IDENTITY(1000000001,1) PRIMARY KEY NOT NULL,
+	Folio BIGINT NOT NULL,
+	PasswordDenuncia VARCHAR(MAX) NOT NULL
+)
+
+
+INSERT INTO [dbo].[Catalogo]
+           (ID_Denuncia,[Empresa]
+           ,[Pais]
+           ,[Estado]
+           ,[NumCentro])
+     VALUES
+           (2939491,'AFORE COPPEL'
+           ,'MEXICO'
+           ,'OAXACA',12)
+GO
+
+INSERT INTO Empresa (Empresas) VALUES ('AFORE COPPEL')
+INSERT INTO Empresa (Empresas) VALUES ('BANCOPPEL')
+INSERT INTO Empresa (Empresas) VALUES ('COPPEL')
+
+INSERT INTO Pais (Paises) VALUES ('Argentina')
+INSERT INTO Pais (Paises) VALUES ('México')
+INSERT INTO Pais (Paises) VALUES ('Estados Unidos')
+
+INSERT INTO Estado (Estados) VALUES('Buenos Aires')
+INSERT INTO Estado (Estados) VALUES('California')
+INSERT INTO Estado (Estados) VALUES('Aguascalientes')
+INSERT INTO Estado (Estados) VALUES('Campeche')
+INSERT INTO Estado (Estados) VALUES('CDMX')
+INSERT INTO UserAdmin (Usuario, Pass) VALUES ('Admin','Admin')
+
+
