@@ -17,8 +17,8 @@ public class ApiService : IApiService
     private static string _baseUrl;
     public ApiService()
     {
-        //_baseUrl = "http://www.apijax.somee.com/";
-        _baseUrl = "http://localhost:5214/";
+        _baseUrl = "http://www.apijax.somee.com/";
+        //_baseUrl = "http://localhost:5214/";
     }
 
     public async Task<bool> CheckLogin(string user, string pass)
