@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="ApplicationDesktop.Modules.Views.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApplicationDesktop.Modules.Views"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="panelContainer">
+        <Grid Grid.Column="0"
+              x:Name="panelChild1"
+              >
+
+            <StackPanel>
+                <TextBlock  Text="Captura de denuncia"
+                            HorizontalAlignment="Center"
+                            FontSize="28"
+                            FontFamily="Montserrat"
+                            FontWeight="ExtraBlack"
+                            Foreground="{StaticResource ForegroundText3}"
+                            Margin="0,20,0,0"/>
+                <TextBlock Text="Coppel"
+                   Foreground="{StaticResource ButtonFlagOrange2}"
+                   HorizontalAlignment="Center"
+                   FontSize="28"
+                   FontFamily="Monserrat"
+                   FontWeight="Bold"/>
+                <TextBlock Text="{StaticResource TextWelcome}"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Margin="0,10,0,0"
+                   FontSize="14"
+                   Foreground="Black"
+                   FontWeight="DemiBold"
+                   Width="300"/>
+                <Button Content="Seguir una Denuncia"
+                        Style="{StaticResource ButtonRounded}"
+                        Width="200"
+                        Height="40"
+                        FontWeight="Bold"
+                        Margin="0,40,0,0"
+                        Command="{Binding LoginClienteCmd}"
+                        CommandParameter="LoginCliente"/>
+                <Button Content="Nueva Denuncia"
+                        Command="{Binding NavigateNewDenuncia}"
+                        CommandParameter="NewDenuncia"
+                        Style="{StaticResource ButtonRounded}"
+                        Width="200"
+                        Height="40"
+                        FontWeight="Bold"
+                        Margin="0,20,0,0"/>
+                <Button Content="Administrador"
+                        Command="{Binding NavigateLoginAdmin}"
+                        CommandParameter="LoginAdmin"
+                        Style="{StaticResource ButtonRounded}"
+                        Width="200"
+                        Height="40"
+                        FontWeight="Bold"
+                        Margin="0,20,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

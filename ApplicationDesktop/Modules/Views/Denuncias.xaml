@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="ApplicationDesktop.Modules.Views.Denuncias"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApplicationDesktop.Modules.Views"
+             mc:Ignorable="d" 
+             xmlns:control="clr-namespace:ApplicationDesktop.Styles"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="750" d:DesignWidth="800"
+             >
+    <Grid>
+        <StackPanel>
+            <TextBlock  Text="Datos de la denuncia"
+                        HorizontalAlignment="Center"
+                        FontSize="28"
+                        FontFamily="Montserrat"
+                        FontWeight="ExtraBlack"
+                        Foreground="{StaticResource ForegroundText3}"
+                        Margin="0,20,0,0"/>
+
+            <TextBlock Text="Coppel"
+                   Foreground="{StaticResource ButtonFlagOrange2}"
+                   HorizontalAlignment="Center"
+                   FontSize="28"
+                   FontFamily="Monserrat"
+                   FontWeight="Bold"/>
+
+            <TextBlock Text="Datos del solicitante:"
+                       HorizontalAlignment="Center"
+                       Margin="0,20,0,0"
+                       FontWeight="Bold"
+                       FontSize="14"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <TextBlock Text="ID Denuncia: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>            
+                <TextBlock Text="{Binding TbIdDenuncia}"
+                       HorizontalAlignment="Center"
+                       
+                       FontFamily="Monserrat"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="ID del Denunciante: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbIdDenunciante}"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Nombre Completo: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbNombreCompleto}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>               
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Correo: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbCorreo}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Telefono : "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbTelefono}"
+                       HorizontalAlignment="Center"
+                       Margin="0,1,0,0"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Empresa: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbEmpresa}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Pais: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbPais,
+                    UpdateSourceTrigger=PropertyChanged}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>               
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Estado: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbEstado,
+                    UpdateSourceTrigger=PropertyChanged}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,1,0,0">
+                <TextBlock Text="Numero de Centro: "
+                           HorizontalAlignment="Center"
+                           Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding TbNumCentro,UpdateSourceTrigger=PropertyChanged}"
+                       HorizontalAlignment="Center"
+                       FontFamily="Monserrat"/>                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <TextBlock Text="Titulo de la denuncia:"
+                           Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxRoundedStyle}"
+                         Width="200"
+                         Height="30"
+                         Text="{Binding TbTitulo}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <TextBlock Text="Detalle de la denuncia:"
+                           Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxRoundedStyle}"
+                         Width="200"
+                         Height="50"
+                         Text="{Binding TbDetalleDenuncia}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,5,0,0">
+                <TextBlock Text="Fecha en que sucedio:"
+                           Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <DatePicker SelectedDate="{Binding Fecha}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0">
+                <TextBlock Text="Contraseña:"
+                           Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <control:TextBoxPassword 
+                    Width="200"
+                    Height="30"
+                    Password="{Binding NewPassword, Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,5,0,0">
+                <TextBlock Text="Confirmar:  "
+                           Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <control:TextBoxPassword 
+                    Width="200"
+                    Height="30"
+                    Password="{Binding ConfirmPassword, Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <TextBlock Text="{Binding ErrorMessage}"
+                       HorizontalAlignment="Center"
+                       Margin="0,20,0,0"/>
+            <TextBlock Text="{Binding ErrorMessage2}"
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,0"/>
+
+            <Button Content="Generar Denuncia"
+                    Style="{StaticResource ButtonRounded}"
+                    HorizontalAlignment="Center"
+                    Width="200"
+                    Height="50"
+                    FontWeight="Bold"
+                    Margin="0,20,0,0"
+                    Command="{Binding NavigateDetalleDenuncia}"
+                    CommandParameter="DetalleDenuncia"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ApplicationDesktop.Modules.Views.NewDenuncia"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApplicationDesktop.Modules.Views"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1">
+            <TextBlock Text="Selecciona la empresa:"
+                       Style="{StaticResource TextBlockStyle3}"
+                       Foreground="{StaticResource ForegroundText3}"/>
+            <ComboBox ItemsSource="{Binding ItemsEmpresa}"
+                      SelectedItem="{Binding SelectedEmpresa,
+                        UpdateSourceTrigger=PropertyChanged}"
+                      Width="200"/>
+
+            <TextBlock Text="Selecciona el Pais:"
+                       Style="{StaticResource TextBlockStyle3}"
+                       Margin="0,10,0,0"
+                       Foreground="{StaticResource ForegroundText3}"/>
+            <ComboBox ItemsSource="{Binding ItemsPais}"
+                      Width="200"
+                      SelectedItem="{Binding SelectedPais,
+                        UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Selecciona el Estado:"
+                       Style="{StaticResource TextBlockStyle3}"
+                       Margin="0,10,0,0"
+                       Foreground="{StaticResource ForegroundText3}"/>
+            <ComboBox ItemsSource="{Binding ItemsEstado}"
+                      Width="200"
+                      SelectedItem="{Binding SelectedEstado,
+                        UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Ingresa el numero de Centro"
+                       Margin="0,10,0,0"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ForegroundText3}"/>
+            <TextBox Text="{Binding TbNumCentro, 
+                     UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TextBoxRoundedStyle2}"
+                     Height="30"/>
+            
+            <TextBlock Text="¿Usted quiere permanecer anonimo?"
+                       Margin="0,30,0,0"
+                       FontWeight="Bold"
+                       Foreground="Red"/>
+            <Button Content="(SI) Continuar siendo Anonimo"
+                    Style="{StaticResource ButtonRounded}"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    Command="{Binding CapturarDenunciaCmd, 
+                    UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="Denuncias"/>
+            <Button Content="(NO)"
+                    Style="{StaticResource ButtonRounded}"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    Command="{Binding NavigateDatosPersonales}"
+                    CommandParameter="DatosPersonales"/>
+
+            <TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="Red"
+                       FontWeight="Bold"
+                       Margin="0,10"/>
+
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <ContentControl prism:RegionManager.RegionName="ContentDatos"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
